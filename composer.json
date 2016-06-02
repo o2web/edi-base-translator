@@ -6,42 +6,22 @@
     "translator",
     "magento"
   ],
-  "homepage": "https://github.com/o2web/ssh2-client",
+  "homepage": "https://github.com/o2web/edi-base-translator",
   "license": "MIT",
   "authors": [
     {
-      "name": "Bartosz Pachołek",
-      "email": "bartosz@ideaconnect.pl",
-      "role": "lead"
-    },
-    {
       "name": "Fabricio Bedoya",
       "email": "fbedoya@o2web.ca",
-      "role": "lead dev"
+      "role": "Lead Dev"
     }
   ],
   "minimum-stability": "dev",
   "require": {
-    "php": ">=5.3.0"
-  },
-  "require-dev": {
-    "ext-curl": "*",
-    "psr/log": "^1.0",
-    "phpunit/phpunit": "^4.0"
+    "php": ">=5.4.0"
   },
   "autoload": {
     "psr-4": {
-      "O2Web\\Networking\\": "src/"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "O2Web\\Networking\\": "tests/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0-dev"
+      "O2Web\\BaseTranslator\\": "src/"
     }
   }
 }
