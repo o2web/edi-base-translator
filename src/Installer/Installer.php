@@ -21,6 +21,7 @@ class Installer
         $vendorPath = $composer->getConfig()->get('vendor-dir');
 
         $projectPath = dirname($vendorPath);
+        echo " Project path : $projectPath \r";
 
         if (file_exists($projectPath . '/' . static::CONFIG_DIR)) {
             mkdir($projectPath . '/' . static::CONFIG_DIR, 0775);
@@ -36,6 +37,7 @@ class Installer
         }
 
         $source = dirname(__DIR__);
+        echo "Source path : $source \r";
 
         if (file_exists($source . '/' . static::AUTOLOAD)) {
             copy($source . '/' . static::AUTOLOAD , $projectPath . '/' . static::AUTOLOAD);
