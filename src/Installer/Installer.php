@@ -15,14 +15,14 @@ class Installer
         $composer = $event->getComposer();
         $vendorPath = $composer->getConfig()->get('vendor-dir');
 
-        if (file_exists($vendorPath . DS . static::CONFIG_DIR)) {
-            mkdir($vendorPath . DS . static::CONFIG_DIR, 0775);
+        if (file_exists($vendorPath . '/' . static::CONFIG_DIR)) {
+            mkdir($vendorPath . '/' . static::CONFIG_DIR, 0775);
         }
-        if (file_exists($vendorPath . DS . static::SOURCE_DIR)) {
-            mkdir($vendorPath . DS . static::SOURCE_DIR, 0775);
+        if (file_exists($vendorPath . '/' . static::SOURCE_DIR)) {
+            mkdir($vendorPath . '/' . static::SOURCE_DIR, 0775);
         }
-        if (file_exists($vendorPath . DS . static::LOG_DIR)) {
-            mkdir($vendorPath . DS . static::LOG_DIR, 0775);
+        if (file_exists($vendorPath . '/' . static::LOG_DIR)) {
+            mkdir($vendorPath . '/' . static::LOG_DIR, 0775);
         }
 
         echo "Installed";
