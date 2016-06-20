@@ -27,10 +27,5 @@
     "psr-4": {
       "O2Web\\BaseTranslator\\": "src/"
     }
-  },
-  "scripts": {
-    "post-update-cmd": [
-      "O2Web\\BaseTranslator\\Installer\\Installer::postInstall"
-    ]
   }
 }
