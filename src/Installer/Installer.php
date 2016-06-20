@@ -9,21 +9,41 @@ class Installer
     const CONFIG_DIR = 'config';
     const SOURCE_DIR = 'src';
     const LOG_DIR = 'log';
+    const LIB_DIR = 'lib';
+
+    const AUTOLOAD = '_autoload.php';
+    const BOOTSTRAP = 'bootstrap.php';
+    const CONSOLE = 'console.php';
 
     public static function postInstall(Event $event)
     {
         $composer = $event->getComposer();
         $vendorPath = $composer->getConfig()->get('vendor-dir');
 
-        if (file_exists($vendorPath . '/' . static::CONFIG_DIR)) {
-            mkdir($vendorPath . '/' . static::CONFIG_DIR, 0775);
+        $projectPath = dirname($vendorPath);
+
+        if (file_exists($projectPath . '/' . static::CONFIG_DIR)) {
+            mkdir($projectPath . '/' . static::CONFIG_DIR, 0775);
         }
         if (file_exists($vendorPath . '/' . static::SOURCE_DIR)) {
-            mkdir($vendorPath . '/' . static::SOURCE_DIR, 0775);
+            mkdir($projectPath . '/' . static::SOURCE_DIR, 0775);
         }
         if (file_exists($vendorPath . '/' . static::LOG_DIR)) {
-            mkdir($vendorPath . '/' . static::LOG_DIR, 0775);
+            mkdir($projectPath . '/' . static::LOG_DIR, 0775);
         }
+
+        $source = dirname(__DIR__);
+
+        if (file_exists($source . '/' . static::AUTOLOAD)) {
+            copy($source . '/' . static::AUTOLOAD , $projectPath . '/' . static::AUTOLOAD);
+        }
+        if (file_exists($source . '/' . static::BOOTSTRAP)) {
+            copy($source . '/' . static::BOOTSTRAP , $projectPath . '/' . static::BOOTSTRAP);
+        }
+        if (file_exists($source . '/' . static::CONSOLE)) {
+            copy($source . '/' . static::CONSOLE , $projectPath . '/' . static::CONSOLE);
+        }
+
 
         echo "Installed";
     }
