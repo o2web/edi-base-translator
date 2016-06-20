@@ -32,18 +32,19 @@ class Installer
             mkdir($projectPath . '/' . static::LOG_DIR, 0775);
         }
 
-        $source = dirname(__DIR__);
+        $sourceDir = dirname(__DIR__);
 
-        if (!file_exists($projectPath . '/' . static::LIB_DIR . '/' . static::AUTOLOAD)) {
-            copy($source . '/' . static::LIB_DIR . '/' . static::AUTOLOAD , $projectPath . '/' . static::AUTOLOAD);
+        if (!file_exists($projectPath . '/' . static::AUTOLOAD)) {
+            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::AUTOLOAD , $projectPath . '/' . static::AUTOLOAD);
             echo "Autoload file has been copied\n";
         }
-        if (!file_exists($projectPath . '/' . static::LIB_DIR . '/' . static::BOOTSTRAP)) {
-            copy($source . '/' . static::LIB_DIR . '/' . static::BOOTSTRAP , $projectPath . '/' . static::BOOTSTRAP);
+
+        if (!file_exists($projectPath . '/' . static::BOOTSTRAP)) {
+            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::BOOTSTRAP , $projectPath . '/' . static::BOOTSTRAP);
             echo "Bootstrap file has been copied\n";
         }
-        if (!file_exists($projectPath . '/' . static::LIB_DIR . '/' . static::CONSOLE)) {
-            copy($source . '/' . static::LIB_DIR . '/' . static::CONSOLE, $projectPath . '/' . static::CONSOLE);
+        if (!file_exists($projectPath . '/' . static::CONSOLE)) {
+            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::CONSOLE, $projectPath . '/' . static::CONSOLE);
             echo "Console file has been copied\n";
         }
 
