@@ -33,14 +33,13 @@ class Installer
         }
 
         $sourceDir = dirname(__DIR__);
-
         if (!file_exists($projectPath . '/' . static::AUTOLOAD)) {
-            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::AUTOLOAD , $projectPath . '/' . static::AUTOLOAD);
+            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::AUTOLOAD, $projectPath . '/' . static::AUTOLOAD);
             echo "Autoload file has been copied\n";
         }
 
         if (!file_exists($projectPath . '/' . static::BOOTSTRAP)) {
-            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::BOOTSTRAP , $projectPath . '/' . static::BOOTSTRAP);
+            copy($sourceDir . '/' . static::LIB_DIR . '/' . static::BOOTSTRAP, $projectPath . '/' . static::BOOTSTRAP);
             echo "Bootstrap file has been copied\n";
         }
         if (!file_exists($projectPath . '/' . static::CONSOLE)) {
