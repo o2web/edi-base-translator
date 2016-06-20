@@ -20,6 +20,7 @@ class Installer
         $composer = $event->getComposer();
         $vendorPath = $composer->getConfig()->get('vendor-dir');
 
+        echo "\nStarting installation\n";
         $projectPath = dirname($vendorPath);
 
         if (!file_exists($projectPath . '/' . static::CONFIG_DIR)) {
